@@ -9,38 +9,85 @@ Realizar los siguientes métodos:
 6) Dadas dos listas, crear una nueva con los elementos que se repitan en ambas
  */
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Lista {
 
+    public static Integer isNull(Integer num){
+        return Objects.requireNonNullElse(num,0);
+    }
+
     public static List<Integer> guardarEnLista(Integer numero){
-        //TODO -> implement me
-        return null;
+        List<Integer> lista = new ArrayList<>();
+        lista.add(isNull(numero));
+        return lista;
     }
 
     public static List<Integer> intercambiar(List<Integer> lista){
-        //TODO -> implement me
-        return null;
+        List<Integer> listaNueva = new ArrayList<>();
+        for(int i = 0; i<lista.size();i++){
+            if(lista.get(i) != null){
+                listaNueva.add(lista.get(i));
+            }
+        }
+        Integer elemento = listaNueva.get(2);
+        listaNueva.add(2, listaNueva.get(4));
+        listaNueva.remove(3);
+        listaNueva.add(4,elemento);
+        listaNueva.remove(5);
+        return listaNueva;
     }
 
     public static List<Integer> agregarElementoAlInicio(List<Integer> lista, Integer numero){
-        //TODO -> implement me
-        return null;
+        List<Integer> listaNueva = new ArrayList<>();
+        for(int i = 0; i<lista.size();i++){
+            if(lista.get(i) != null){
+                listaNueva.add(lista.get(i));
+            }
+        }
+        listaNueva.add(0,numero);
+        return listaNueva;
     }
 
     public static Double promedioLista(List<Integer> lista){
-        //TODO -> implement me
-        return null;
+        double total = 0;
+        Integer totalElementosEnListaSinNull = 0;
+        for(int i = 0; i<lista.size();i++){
+            if(lista.get(i) != null){
+                totalElementosEnListaSinNull++;
+                total += lista.get(i);
+            }
+        }
+        return total/totalElementosEnListaSinNull;
     }
 
     public static List<Integer> eliminarMaximo(List<Integer> lista){
-        //TODO -> implement me
-        return null;
+        List<Integer> newList = new ArrayList<>();
+        Integer max = 0;
+        if(!lista.isEmpty()){
+            for(int i = 0; i<lista.size();i++){
+                if(lista.get(i) != null ){
+                    newList.add(lista.get(i));
+                    if (lista.get(i) > max) {
+                        max = lista.get(i);
+                    }
+                }
+            }
+        }
+        newList.remove(newList.indexOf(max));
+        return newList;
     }
 
     public static List<Integer> repetidos(List<Integer> a, List<Integer> b){
-        //TODO -> implement me
-        return null;
+        List<Integer> newList = new ArrayList<>();
+        for (int i = 0; i < a.size();i++){
+            if(b.contains(a.get(i))){
+                newList.add(a.get(i));
+            }
+        }
+        return newList;
     }
 
 }

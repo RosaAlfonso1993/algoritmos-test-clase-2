@@ -1,5 +1,6 @@
 package com.redbeeacademy.algoritmostest.Lista.EjercicioCine;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /*
@@ -26,19 +27,48 @@ public class Cine {
 
     public static double cantidadTotalRecaudada(List<Persona> personas){
         double cantidadTotal = 0;
-        //TODO -> implement me
+        if(!personas.isEmpty()){
+            for(int i = 0; i < personas.size();i++){
+                if(personas.get(i) != null){
+                    if(personas.get(i).getEdad() >= 5 && personas.get(i).getEdad() <= 10){
+                        cantidadTotal += 100;
+                    }
+                    if(personas.get(i).getEdad() >= 11 && personas.get(i).getEdad() <= 17){
+                        cantidadTotal += 150;
+                    }
+                    if(personas.get(i).getEdad() >= 18){
+                        cantidadTotal += 200;
+                    }
+                }
+            }
+            return cantidadTotal;
+        }
         return cantidadTotal;
     }
 
     public static Integer cantidadPersonas(List<Persona> personas){
         Integer cantidadPersonas = 0;
-        //TODO -> implement me
+        if(!personas.isEmpty()){
+            for (int i = 0; i < personas.size();i++){
+                if(personas.get(i) != null){
+                    cantidadPersonas++;
+                }
+            }
+        }
         return cantidadPersonas;
     }
 
     public static double promedioEdad(List<Persona> personas){
         double promedio = 0;
-        //TODO -> implement me
+        double totalEdades = 0;
+        if(!personas.isEmpty()){
+            for (int i = 0; i < personas.size();i++){
+                if(personas.get(i) != null){
+                    totalEdades += personas.get(i).getEdad();
+                }
+            }
+        }
+        promedio = Math.round(totalEdades/cantidadPersonas(personas)*100.0)/100.0;
         return promedio;
     }
 }
